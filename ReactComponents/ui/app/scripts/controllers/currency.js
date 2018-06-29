@@ -73,6 +73,7 @@ class CurrencyController {
    *
    */
   setConversionRate (conversionRate) {
+    console.log('SETTING CONVERSION RATE', conversionRate);
     this.store.updateState({ conversionRate })
   }
 
@@ -112,6 +113,7 @@ class CurrencyController {
       this.setConversionRate(Number(parsedResponse.bid))
       this.setConversionDate(Number(parsedResponse.timestamp))
     } catch (err) {
+      console.log("FETCH IS NOT WORKING", err);
       log.warn(`MetaMask - Failed to query currency conversion:`, currentCurrency, err)
       this.setConversionRate(0)
       this.setConversionDate('N/A')
@@ -130,7 +132,7 @@ class CurrencyController {
     }
     this.conversionInterval = setInterval(() => {
       this.updateConversionRate()
-    }, POLLING_INTERVAL)
+    }, 5000)
   }
 }
 

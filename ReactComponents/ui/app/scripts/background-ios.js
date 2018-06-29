@@ -59,11 +59,7 @@ const diskStore = new LocalStorageStore({ storageKey: STORAGE_KEY })
 const localStore = new LocalStore()
 let versionedData
 
-// initialization flow
-initialize().catch(log.error)
 
-// setup metamask mesh testing container
-setupMetamaskMeshMetrics()
 
 /**
  * An object representing a transaction, in whatever state it is in.
@@ -409,7 +405,7 @@ function setupController (initState, initLangCode) {
     //extension.browserAction.setBadgeBackgroundColor({ color: '#506F8B' })
   }
 
-  return Promise.resolve()
+  return Promise.resolve(controller)
 }
 
 //
@@ -436,3 +432,22 @@ extension.runtime.onInstalled.addListener(function (details) {
   }
 })
  */
+
+function init(){
+  
+  return new Promise((resolve, reject) => {
+    // initialization flow
+    return initialize().then( _ => {
+      // setup metamask mesh testing container
+      setupMetamaskMeshMetrics();
+      resolve(global.metamaskController)
+    }).catch(e => {
+      log.error(e)
+    });
+  })
+  
+}
+
+
+export default init;
+
