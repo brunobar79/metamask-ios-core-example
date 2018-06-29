@@ -4,9 +4,8 @@ require('react-native-browser-polyfill')
 
 import React from 'react';
 import {AppRegistry, StyleSheet, View, Text, ActivityIndicator} from 'react-native';
-import initBackground from './ui/app/scripts/background-ios';
+import initBackground from './core/scripts/background-ios';
 
-//import launchMetamaskUi from './ui'
 
 class MetamaskApp extends React.Component {
   constructor(props){
