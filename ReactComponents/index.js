@@ -3,7 +3,7 @@ import crypto from 'crypto'
 require('react-native-browser-polyfill')
 
 import React from 'react';
-import {AppRegistry, StyleSheet, View} from 'react-native';
+import {AppRegistry, StyleSheet, View, Text} from 'react-native';
 import bg from './ui/app/scripts/background-ios';
 
 //import launchMetamaskUi from './ui'
@@ -18,18 +18,12 @@ class MetamaskApp extends React.Component {
   }
 
   componentDidMount = () => {
-    /*launchMetamaskUi({}, ui => {
-        this.ui = ui
-        this.setState({ready: true});
-    })*/
+    
   }
   
 
-
-
-
   render() {
-    return null
+    return <View style={styles.container}><Text style={styles.title}>YES</Text></View>
   }
 }
 

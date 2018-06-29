@@ -41,8 +41,8 @@ const notificationManager = new NotificationManager()
 global.METAMASK_NOTIFIER = notificationManager
 
 // setup sentry error reporting
-const release = platform.getVersion()
-const raven = setupRaven({ release })
+//const release = platform.getVersion()
+//const raven = setupRaven({ release })
 
 // browser check if it is Edge - https://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser
 // Internet Explorer 6-11
@@ -153,7 +153,7 @@ async function initialize () {
   const initState = await loadStateFromPersistence()
   const initLangCode = await getFirstPreferredLangCode()
   await setupController(initState, initLangCode)
-  log.debug('MetaMask initialization complete.')
+  console.log('MetaMask initialization complete.')
 }
 
 //
@@ -186,14 +186,14 @@ async function loadStateFromPersistence () {
       // we were able to recover (though it might be old)
       versionedData = diskStoreState
       const vaultStructure = getObjStructure(versionedData)
-      raven.captureMessage('MetaMask - Empty vault found - recovered from diskStore', {
+      /*raven.captureMessage('MetaMask - Empty vault found - recovered from diskStore', {
         // "extra" key is required by Sentry
-        extra: { vaultStructure },
-      })
+        extra: { vaultStructure }
+      })*/
     } else {
       // unable to recover, clear state
       versionedData = migrator.generateInitialState(firstTimeState)
-      raven.captureMessage('MetaMask - Empty vault found - unable to recover')
+      //raven.captureMessage('MetaMask - Empty vault found - unable to recover')
     }
   }
 
@@ -201,10 +201,10 @@ async function loadStateFromPersistence () {
   migrator.on('error', (err) => {
     // get vault structure without secrets
     const vaultStructure = getObjStructure(versionedData)
-    raven.captureException(err, {
+    /*raven.captureException(err, {
       // "extra" key is required by Sentry
       extra: { vaultStructure },
-    })
+    })*/
   })
 
   // migrate data
@@ -261,11 +261,11 @@ function setupController (initState, initLangCode) {
   controller.txController.on(`tx:status-update`, (txId, status) => {
     if (status !== 'failed') return
     const txMeta = controller.txController.txStateManager.getTx(txId)
-    try {
-      reportFailedTxToSentry({ raven, txMeta })
+    /*try {
+      //reportFailedTxToSentry({ raven, txMeta })
     } catch (e) {
       console.error(e)
-    }
+    }*/
   })
 
   // setup state persistence
