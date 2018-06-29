@@ -132,7 +132,7 @@ class CurrencyController {
     }
     this.conversionInterval = setInterval(() => {
       this.updateConversionRate()
-    }, 5000)
+    }, POLLING_INTERVAL)
   }
 }
 
