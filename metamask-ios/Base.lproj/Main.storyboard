@@ -111,17 +111,36 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Uu-qf-aRm">
+                                <rect key="frame" x="62.5" y="175" width="250" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.59239270380212117" blue="0.2597748158872899" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="jrs-Zr-ysj"/>
+                                    <constraint firstAttribute="height" constant="40" id="x3x-es-yBo"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Get ETH price from JS"/>
+                                <connections>
+                                    <action selector="getEthRate:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="Pi3-3T-JYT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
+                            <constraint firstItem="4Uu-qf-aRm" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="155" id="Z05-nY-ADF"/>
+                            <constraint firstItem="4Uu-qf-aRm" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="gZt-sX-sew"/>
                             <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Wallet" image="second" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="button" destination="4Uu-qf-aRm" id="bbv-Xp-YIN"/>
+                        <outlet property="label" destination="zEq-FU-wV5" id="eBp-ya-Xhs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>

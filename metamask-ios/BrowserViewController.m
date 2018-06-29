@@ -118,8 +118,6 @@
     }
     
     if([keyPath isEqualToString:@"loading"]){
-        NSLog(@"%@", change);
-
         BOOL now = [change[NSKeyValueChangeNewKey] boolValue];
         
         if(now){

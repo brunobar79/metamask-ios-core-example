@@ -16,6 +16,7 @@
 		1547A50C20E33B0200620B67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1547A50B20E33B0200620B67 /* main.m */; };
 		1547A51420E3F4B400620B67 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1547A51320E3F4B300620B67 /* WebKit.framework */; };
 		15961E2920E62439002E3192 /* RNRandomBytes.m in Sources */ = {isa = PBXBuildFile; fileRef = 15961E2820E62439002E3192 /* RNRandomBytes.m */; };
+		15961E2C20E6E923002E3192 /* NativeBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 15961E2B20E6E923002E3192 /* NativeBridge.m */; };
 		15EA961220E5BB1E003A6EDA /* js in Resources */ = {isa = PBXBuildFile; fileRef = 15EA961120E5BB1E003A6EDA /* js */; };
 		4A0BCC18D5A5273DC2898984 /* libPods-metamask-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 760A1E2E9FB0DF94780D8193 /* libPods-metamask-ios.a */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,8 @@
 		1547A51320E3F4B300620B67 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		15961E2720E62439002E3192 /* RNRandomBytes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNRandomBytes.h; sourceTree = "<group>"; };
 		15961E2820E62439002E3192 /* RNRandomBytes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNRandomBytes.m; sourceTree = "<group>"; };
+		15961E2A20E6E665002E3192 /* NativeBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeBridge.h; sourceTree = "<group>"; };
+		15961E2B20E6E923002E3192 /* NativeBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeBridge.m; sourceTree = "<group>"; };
 		15EA961120E5BB1E003A6EDA /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
 		760A1E2E9FB0DF94780D8193 /* libPods-metamask-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-metamask-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB208CE8CF16A0E7A5F3F98B /* Pods-metamask-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metamask-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-metamask-ios/Pods-metamask-ios.release.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +92,8 @@
 				1547A50720E33B0200620B67 /* LaunchScreen.storyboard */,
 				1547A50A20E33B0200620B67 /* Info.plist */,
 				1547A50B20E33B0200620B67 /* main.m */,
+				15961E2A20E6E665002E3192 /* NativeBridge.h */,
+				15961E2B20E6E923002E3192 /* NativeBridge.m */,
 			);
 			path = "metamask-ios";
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15961E2920E62439002E3192 /* RNRandomBytes.m in Sources */,
+				15961E2C20E6E923002E3192 /* NativeBridge.m in Sources */,
 				1547A50120E33B0000620B67 /* WalletViewController.m in Sources */,
 				1547A4FB20E33B0000620B67 /* AppDelegate.m in Sources */,
 				1547A50C20E33B0200620B67 /* main.m in Sources */,
