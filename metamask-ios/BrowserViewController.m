@@ -46,8 +46,8 @@
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
     
     NSString *js = @"";
-    //Web3.js
-    NSString *web3Bundle = [[NSBundle mainBundle] pathForResource:@"web3" ofType:@"js"];
+    //web3.js
+    NSString *web3Bundle = [[NSBundle mainBundle] pathForResource:@"web3" ofType:@"js" inDirectory:@"js"];
     NSError *error = nil;
     NSString *web3js = [[NSString alloc] initWithContentsOfFile:web3Bundle encoding:NSUTF8StringEncoding error:&error];
     if(error) { // If error object was instantiated, handle it.
@@ -55,6 +55,16 @@
     }
 
     js = [js stringByAppendingString: web3js];
+    
+    //inpage.js
+    NSString *inPageBundle = [[NSBundle mainBundle] pathForResource:@"inpage" ofType:@"js" inDirectory:@"js"];
+    NSString *inpagejs = [[NSString alloc] initWithContentsOfFile:inPageBundle encoding:NSUTF8StringEncoding error:&error];
+    if(error) { // If error object was instantiated, handle it.
+        NSLog(@"ERROR while loading from file: %@", error);
+    }
+    
+    js = [js stringByAppendingString: inpagejs];
+    
     
     WKUserScript *script = [[WKUserScript alloc] initWithSource:js injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
     WKUserContentController *userContentController = [[WKUserContentController alloc] init];

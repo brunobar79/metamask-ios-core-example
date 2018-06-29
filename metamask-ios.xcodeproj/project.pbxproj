@@ -15,7 +15,9 @@
 		1547A50920E33B0200620B67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1547A50720E33B0200620B67 /* LaunchScreen.storyboard */; };
 		1547A50C20E33B0200620B67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1547A50B20E33B0200620B67 /* main.m */; };
 		1547A51420E3F4B400620B67 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1547A51320E3F4B300620B67 /* WebKit.framework */; };
-		1547A51720E58E8500620B67 /* web3.js in Resources */ = {isa = PBXBuildFile; fileRef = 1547A51620E58E8500620B67 /* web3.js */; };
+		15961E2920E62439002E3192 /* RNRandomBytes.m in Sources */ = {isa = PBXBuildFile; fileRef = 15961E2820E62439002E3192 /* RNRandomBytes.m */; };
+		15EA961220E5BB1E003A6EDA /* js in Resources */ = {isa = PBXBuildFile; fileRef = 15EA961120E5BB1E003A6EDA /* js */; };
+		4A0BCC18D5A5273DC2898984 /* libPods-metamask-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 760A1E2E9FB0DF94780D8193 /* libPods-metamask-ios.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +34,12 @@
 		1547A50A20E33B0200620B67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1547A50B20E33B0200620B67 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1547A51320E3F4B300620B67 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		1547A51620E58E8500620B67 /* web3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = web3.js; sourceTree = "<group>"; };
+		15961E2720E62439002E3192 /* RNRandomBytes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNRandomBytes.h; sourceTree = "<group>"; };
+		15961E2820E62439002E3192 /* RNRandomBytes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNRandomBytes.m; sourceTree = "<group>"; };
+		15EA961120E5BB1E003A6EDA /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
+		760A1E2E9FB0DF94780D8193 /* libPods-metamask-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-metamask-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB208CE8CF16A0E7A5F3F98B /* Pods-metamask-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metamask-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-metamask-ios/Pods-metamask-ios.release.xcconfig"; sourceTree = "<group>"; };
+		FCD6FFD99CBCDB191863839B /* Pods-metamask-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-metamask-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-metamask-ios/Pods-metamask-ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +48,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1547A51420E3F4B400620B67 /* WebKit.framework in Frameworks */,
+				4A0BCC18D5A5273DC2898984 /* libPods-metamask-ios.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +61,7 @@
 				1547A4F820E33B0000620B67 /* metamask-ios */,
 				1547A4F720E33B0000620B67 /* Products */,
 				1547A51220E3F4B300620B67 /* Frameworks */,
+				DD36852A3EC3CADC60F72811 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,7 +76,8 @@
 		1547A4F820E33B0000620B67 /* metamask-ios */ = {
 			isa = PBXGroup;
 			children = (
-				1547A51620E58E8500620B67 /* web3.js */,
+				15961E2220E623EE002E3192 /* libs */,
+				15EA961120E5BB1E003A6EDA /* js */,
 				1547A4F920E33B0000620B67 /* AppDelegate.h */,
 				1547A4FA20E33B0000620B67 /* AppDelegate.m */,
 				1547A4FC20E33B0000620B67 /* BrowserViewController.h */,
@@ -87,8 +97,27 @@
 			isa = PBXGroup;
 			children = (
 				1547A51320E3F4B300620B67 /* WebKit.framework */,
+				760A1E2E9FB0DF94780D8193 /* libPods-metamask-ios.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		15961E2220E623EE002E3192 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				15961E2720E62439002E3192 /* RNRandomBytes.h */,
+				15961E2820E62439002E3192 /* RNRandomBytes.m */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+		DD36852A3EC3CADC60F72811 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FCD6FFD99CBCDB191863839B /* Pods-metamask-ios.debug.xcconfig */,
+				BB208CE8CF16A0E7A5F3F98B /* Pods-metamask-ios.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +127,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1547A50F20E33B0200620B67 /* Build configuration list for PBXNativeTarget "metamask-ios" */;
 			buildPhases = (
+				5BE4A7372C9D99377EC4EE7C /* [CP] Check Pods Manifest.lock */,
 				1547A4F220E33B0000620B67 /* Sources */,
 				1547A4F320E33B0000620B67 /* Frameworks */,
 				1547A4F420E33B0000620B67 /* Resources */,
@@ -148,8 +178,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15EA961220E5BB1E003A6EDA /* js in Resources */,
 				1547A50920E33B0200620B67 /* LaunchScreen.storyboard in Resources */,
-				1547A51720E58E8500620B67 /* web3.js in Resources */,
 				1547A50620E33B0200620B67 /* Assets.xcassets in Resources */,
 				1547A50420E33B0000620B67 /* Main.storyboard in Resources */,
 			);
@@ -157,11 +187,33 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5BE4A7372C9D99377EC4EE7C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-metamask-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1547A4F220E33B0000620B67 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15961E2920E62439002E3192 /* RNRandomBytes.m in Sources */,
 				1547A50120E33B0000620B67 /* WalletViewController.m in Sources */,
 				1547A4FB20E33B0000620B67 /* AppDelegate.m in Sources */,
 				1547A50C20E33B0200620B67 /* main.m in Sources */,
@@ -303,6 +355,7 @@
 		};
 		1547A51020E33B0200620B67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCD6FFD99CBCDB191863839B /* Pods-metamask-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -320,6 +373,7 @@
 		};
 		1547A51120E33B0200620B67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB208CE8CF16A0E7A5F3F98B /* Pods-metamask-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

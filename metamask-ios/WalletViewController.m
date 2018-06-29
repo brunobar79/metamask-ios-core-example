@@ -7,6 +7,7 @@
 //
 
 #import "WalletViewController.h"
+#import <React/RCTRootView.h>
 
 @interface WalletViewController ()
 
@@ -17,6 +18,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.bundle?platform=ios"];
+    
+    RCTRootView *rootView =
+    [[RCTRootView alloc] initWithBundleURL: jsCodeLocation
+                                moduleName: @"MetamaskApp"
+                         initialProperties: @{}
+                             launchOptions: nil];
+    self.view = rootView;
 }
 
 
