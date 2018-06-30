@@ -23,6 +23,7 @@ class MetamaskApp extends React.Component {
     this.bridge.actionHandler = (data) => {
       switch(data.action){
         case 'getCurrentEthRate':
+         console.log('[METAMASK]: calling get eth rate');
           this.getCurrentEthRate();
         break;
         default:
@@ -37,12 +38,14 @@ class MetamaskApp extends React.Component {
     const API = this.controller.getApi()
     API.setCurrentCurrency('usd', (error, rate) =>{
       this.bridge.sendToNative('currentEthRate', rate)
-      console.log('POLLING STARTED');
+      console.log('[METAMASK]: POLLING STARTED');
 
       this.controller.currencyController.scheduleConversionInterval()
 
       setInterval( _ => {
         const rate = this.controller.currencyController.getConversionRate()
+        console.log('[METAMASK]: GOT NEW RATE');
+
         this.bridge.sendToNative('currentEthRate', {conversionRate: rate})
       }, 5000)
     });
