@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Updating Obj-c files..."
+REACT_FILE=$(find . -name ReactNativeViewController.m); 
+sed -i '' -e 's/BOOL REACT_DEV_MODE = YES;/BOOL REACT_DEV_MODE = NO;/g' $REACT_FILE;
+
+echo "Generating new bundle..."
+cd ReactComponents
+react-native bundle --dev false --platform ios --entry-file index.js  --sourcemap-output ../main.map  --bundle-output ../main.jsbundle
+
+echo "Done."
+exit;

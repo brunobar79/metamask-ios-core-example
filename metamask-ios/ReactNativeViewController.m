@@ -17,35 +17,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.label.hidden = YES;
-    
-    
-    [self.view addSubview:rootView];
-    
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotEthRate:) name:@"currentEthRate" object:nil];
-    
 }
 
+- (void)initialize {
+    // Do any additional setup after loading the view, typically from a nib.
+    BOOL REACT_DEV_MODE = NO;
+    NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+    
+    
+    if(REACT_DEV_MODE){
+        jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.bundle?platform=ios"];
+    }
+    
+    RCTRootView *rootView =
+    [[RCTRootView alloc] initWithBundleURL: jsCodeLocation
+                                moduleName: @"MetamaskApp"
+                         initialProperties: @{}
+                             launchOptions: nil];
+    rootView.translatesAutoresizingMaskIntoConstraints = NO;
+    [rootView setBackgroundColor:[UIColor clearColor]];
+    rootView.hidden = YES;
+    self.view = rootView;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (IBAction)getEthRate:(id)sender {
-    self.button.hidden = YES;
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"sendToJS" object:@{@"action":@"getCurrentEthRate"}];
-    
-}
-
--(void)gotEthRate:(NSNotification *)notification{
-    NSDictionary *data = notification.object;
-    NSNumber *rate = (NSNumber *)data[@"conversionRate"];
-    self.label.text = [NSString stringWithFormat:@"ETH PRICE: $%@", rate];
-    
-    self.label.hidden = NO;
 }
 
 

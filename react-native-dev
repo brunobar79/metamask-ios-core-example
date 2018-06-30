@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Updating Obj-c files..."
+
+REACT_FILE=$(find . -name ReactNativeViewController.m); 
+sed -i '' -e 's/BOOL REACT_DEV_MODE = NO;/BOOL REACT_DEV_MODE = YES;/g' $REACT_FILE;
+
+echo "Starting server..."
+killall node
+cd ReactComponents/ && react-native start &
+cd ..
+exit;

@@ -10,6 +10,5 @@
 
 @interface WalletViewController : UIViewController
 
-
 @end
 

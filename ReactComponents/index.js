@@ -1,5 +1,6 @@
 import './shim.js'
 import crypto from 'crypto'
+
 require('react-native-browser-polyfill')
 
 import React from 'react';
@@ -31,7 +32,7 @@ class MetamaskApp extends React.Component {
   }
   
 
-  
+
   getCurrentEthRate(){
     const API = this.controller.getApi()
     API.setCurrentCurrency('usd', (error, rate) =>{

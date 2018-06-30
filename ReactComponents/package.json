@@ -159,7 +159,7 @@
   },
   "devDependencies": {
     "babel-plugin-transform-imports": "^1.5.0",
-    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-react-native-stage-0": "^1.0.1",
     "babel-preset-stage-2": "^6.24.1",
     "buffer": "^4.9.1",
     "rn-nodeify": "github:tradle/rn-nodeify"

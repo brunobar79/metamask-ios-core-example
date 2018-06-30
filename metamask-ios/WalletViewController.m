@@ -1,5 +1,5 @@
 //
-//  SecondViewController.m
+//  WalletViewController.m
 //  metamask-ios
 //
 //  Created by Bruno on 6/26/18.
@@ -7,7 +7,7 @@
 //
 
 #import "WalletViewController.h"
-#import <React/RCTRootView.h>
+#import "ReactNativeViewController.h"
 
 @interface WalletViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *label;
@@ -22,19 +22,12 @@
     
     self.label.hidden = YES;
     
-    // Do any additional setup after loading the view, typically from a nib.
+    ReactNativeViewController *js = [[ReactNativeViewController alloc] init];
+    [js initialize];
     
-    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.bundle?platform=ios"];
+    [self addChildViewController:js];
     
-    RCTRootView *rootView =
-    [[RCTRootView alloc] initWithBundleURL: jsCodeLocation
-                                moduleName: @"MetamaskApp"
-                         initialProperties: @{}
-                             launchOptions: nil];
-    rootView.hidden = YES;
-    [self.view addSubview:rootView];
-    
-    
+    //Listeners
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotEthRate:) name:@"currentEthRate" object:nil];
 
 }
@@ -44,19 +37,21 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+// Actions
+
 - (IBAction)getEthRate:(id)sender {
     self.button.hidden = YES;
-    
+    self.label.hidden = NO;
+    self.label.text = @"loading...";
     [[NSNotificationCenter defaultCenter] postNotificationName:@"sendToJS" object:@{@"action":@"getCurrentEthRate"}];
-
 }
 
 -(void)gotEthRate:(NSNotification *)notification{
     NSDictionary *data = notification.object;
     NSNumber *rate = (NSNumber *)data[@"conversionRate"];
     self.label.text = [NSString stringWithFormat:@"ETH PRICE: $%@", rate];
-    
-    self.label.hidden = NO;
 }
 
 
